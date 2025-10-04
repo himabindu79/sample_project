@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 def clean_data(input_file, output_file):
     print("Reading data...")
@@ -8,7 +9,7 @@ def clean_data(input_file, output_file):
     # Drop duplicate rows
     df = df.drop_duplicates()
 
-    # Drop rows with any missing values
+    # Drop rows with missing values
     df = df.dropna()
 
     print("Saving cleaned data...")
@@ -17,7 +18,8 @@ def clean_data(input_file, output_file):
 
 
 if __name__ == "__main__":
-    # Example usage
-    input_file = "data/raw_data.csv"
-    output_file = "data/cleaned_data.csv"
+    # file paths based on your folder structure
+    input_file = os.path.join("data", "raw", "raw_data.csv")
+    output_file = os.path.join("data", "clean", "cleaned_data.csv")
+
     clean_data(input_file, output_file)
